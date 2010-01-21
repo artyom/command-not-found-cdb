@@ -1,0 +1,18 @@
+command-not-found-cdb
+=====================
+
+This little script is a replacement for slooow python-based
+`command-not-found` package from Ubuntu/Debian.
+
+Depends on apt-file and tinycdb packages:
+
+    sudo apt-get install apt-file tinycdb && sudo apt-file update
+
+After updating apt-file cache, run `update-command-not-found` script, then
+source `command-not-found.bash` and you're ready to go.
+
+## Notes
+
+Binaries provided by alternatives system are NOT supported (original
+update-command-not-found uses some dirty magick trying to guess names by
+parsing post-install scripts).
