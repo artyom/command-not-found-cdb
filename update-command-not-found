@@ -2,9 +2,7 @@
 find /var/cache/apt/apt-file -name '*gz' -type f -print0 | \
 	xargs -r0 zgrep -h '^usr\/bin\/\|^usr\/sbin\/\|^bin\/\|^sbin\/' | \
 	awk '{sub(/.+\//,"",$1);
-	printf("%s\t",$1);
-	sub("$1","",$1);
 	gsub(/[a-z]+\//,"",$NF);
 	gsub(","," ",$NF);
-	print $NF}' | \
+	print $1"\t"$NF}' | \
 		cdb -c -m $HOME/.cache/command-not-found.cdb
